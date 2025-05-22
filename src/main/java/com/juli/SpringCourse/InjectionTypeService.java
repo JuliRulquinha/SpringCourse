@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @PropertySources({
     @PropertySource("classpath:custom.properties"),
-    @PropertySource("classpath:custom-file.properties")
+    @PropertySource("classpath:custom-file.properties"),
 })
 
 @Service
@@ -19,11 +19,15 @@ public class InjectionTypeService {
     @Value("${my.prop}")
     private String customProperty;
 
+    @Value("${my.custom.property}")
+    private String myCustomProperty;
+
     @Value("${my.prop.2}")
     private String customProperty2;
 
     @Value("${my.custom.property.int}")
     private Integer customPropertyInt;
+
 
     @Value("${default.properties.file}")
     private String defaultFileProperty;
@@ -54,4 +58,10 @@ public class InjectionTypeService {
     public String getDefaultFileProperty() {
         return defaultFileProperty;
     }
+
+    public String getMyCustomProperty() {
+        return myCustomProperty;
+    }
+
+    
 }

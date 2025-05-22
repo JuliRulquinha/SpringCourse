@@ -1,5 +1,7 @@
 package com.juli.SpringCourse;
 
+import java.util.Collections;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +10,9 @@ public class SpringCourseApplication {
 
 	public static void main(String[] args) {
 
-		var ctx = SpringApplication.run(SpringCourseApplication.class, args);
+		var app = new SpringApplication(SpringCourseApplication.class);
+		app.setDefaultProperties(Collections.singletonMap("spring.profiles.active", "test"));
+		var ctx = app.run(args);
 
 		InjectionTypeService injectionTypeService = ctx.getBean(InjectionTypeService.class);
 		System.out.println("\n" + injectionTypeService.printInjectionInfo());
@@ -17,6 +21,8 @@ public class SpringCourseApplication {
 		System.out.println("\n" + injectionTypeService.getCustomProperty2());
 		System.out.println("\nAn integer coming from from the application.properties: " + injectionTypeService.getCustomPropertyInt());
 		System.out.println("\n" + injectionTypeService.getDefaultFileProperty());
+
+		System.out.println("\nThis is an active profile message: " + injectionTypeService.getMyCustomProperty());
 	}
 
 
