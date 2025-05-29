@@ -1,6 +1,8 @@
-package com.juli.SpringCourse;
+package com.juli.SpringCourse.student;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.juli.SpringCourse.school.School;
+import com.juli.SpringCourse.studentProfile.StudentProfile;
 import jakarta.persistence.*;
 
 @Entity

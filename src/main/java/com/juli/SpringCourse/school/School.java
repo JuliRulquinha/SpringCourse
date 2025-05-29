@@ -1,6 +1,8 @@
-package com.juli.SpringCourse;
+package com.juli.SpringCourse.school;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import com.juli.SpringCourse.student.Student;
 import jakarta.persistence.*;
 
 import java.util.List;

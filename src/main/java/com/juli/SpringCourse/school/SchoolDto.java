@@ -1,4 +1,4 @@
-package com.juli.SpringCourse;
+package com.juli.SpringCourse.school;
 
 public record SchoolDto (
         String name

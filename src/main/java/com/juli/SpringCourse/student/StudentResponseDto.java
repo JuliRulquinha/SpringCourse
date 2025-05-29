@@ -1,4 +1,4 @@
-package com.juli.SpringCourse;
+package com.juli.SpringCourse.student;
 
 public record StudentResponseDto(
 

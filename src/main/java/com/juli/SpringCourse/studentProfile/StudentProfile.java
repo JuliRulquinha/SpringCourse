@@ -1,5 +1,6 @@
-package com.juli.SpringCourse;
+package com.juli.SpringCourse.studentProfile;
 
+import com.juli.SpringCourse.student.Student;
 import jakarta.persistence.*;
 
 @Entity
