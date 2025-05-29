@@ -37,11 +37,34 @@ public class FirstController {
     }
 
     @PostMapping("/students")
-    public Student createStudent(
-            @RequestBody Student student
+    public StudentResponseDto createStudent(
+            @RequestBody StudentDto dto
     ){
-        return repository.save(student);
 
+        var student = toStudent(dto);
+        var savedstudent = repository.save(student);
+        return toStudentResponseDto(savedstudent);
+    }
+
+    private StudentResponseDto toStudentResponseDto(Student student){
+        return new StudentResponseDto(
+                student.getName(),
+                student.getLastName(),
+                student.getEmail()
+        );
+    }
+
+    private Student toStudent(StudentDto dto){
+        var student = new Student();
+        student.setName(dto.name());
+        student.setLastName(dto.lastName());
+        student.setEmail(dto.email());
+        var school = new School();
+        school.setId(dto.schoolId());
+
+        student.setSchool(school);
+
+        return student;
     }
 
     @DeleteMapping("/students/{student-id}")
