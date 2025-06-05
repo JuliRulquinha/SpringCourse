@@ -14,6 +14,8 @@ public class Student {
     private Integer id;
     private String name;
     private String lastName;
+
+    @Column(unique = true)
     private String email;
     private int age;
 
@@ -43,6 +45,12 @@ public class Student {
         this.age = age;
     }
 
+    public Student(String name, String lastName, String email, int age) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.age = age;
+    }
 
 
     public Integer getId() {
