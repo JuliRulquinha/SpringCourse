@@ -1,11 +1,14 @@
 package com.juli.SpringCourse.student;
 
-public record StudentDto (
+import jakarta.validation.constraints.NotEmpty;
 
-     String name,
-     String lastName,
-     String email,
-     Integer schoolId
+public record StudentDto (
+        @NotEmpty(message = "Name should not be empty")
+         String name,
+        @NotEmpty(message = "Last name should not be empty")
+         String lastName,
+         String email,
+         Integer schoolId
 
 ){
 }
